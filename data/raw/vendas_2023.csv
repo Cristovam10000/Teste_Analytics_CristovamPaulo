@@ -4,7 +4,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 3,2023-09-27,Camiseta Básica,Moda,,68.88
 4,2023-02-19,Camiseta Dry,Esporte,4.0,54.67
 5,,Garrafa Térmica,,5.0,60.13
-6,,Quebra-cabeça 500pç,Brinquedos,4.0,58.14
+6,2023-07-15,Quebra-cabeça 500pç,Brinquedos,4.0,58.14
 7,2023-04-28,Mouse Óptico,Eletrônicos,2.0,141.79
 8,2023-07-07,Jaqueta Leve,Moda,5.0,
 9,2023-12-19,Panela Antiaderente,,4.0,118.84
@@ -16,11 +16,11 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 15,31/02/2023,Calça Jeans,Moda,3.0,96.59
 16,2023-08-22,Tênis Casual,Moda,3.0,28.14
 17,2023-04-02,Mochila Fitness,Esporte,0,135.09
-18,31/02/2023,Smartwatch,,4.0,939.67
+18,2023-04-08,Smartwatch,,4.0,939.67
 19,2023-01-23,Jogo de Tabuleiro,Brinquedos,3.0,60.94
 20,2023-02-21,Mochila Fitness,Esporte,7.0,
 21,,Tênis Running,Esporte,2.0,200.33
-22,31/02/2023,Liquidificador Turbo,Casa & Cozinha,3.0,138.19
+22,2023-06-24,Liquidificador Turbo,Casa & Cozinha,3.0,138.19
 23,2023-03-02,Smartwatch,Eletrônicos,7.0,211.71
 24,2023-06-02,Jogo de Tabuleiro,Brinquedos,3.0,20.42
 25,2023-08-09,Boné Snapback,Moda,4.0,124.0
@@ -28,7 +28,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 27,2023-05-04,Tênis Running,Esporte,3.0,72.32
 28,2023-05-15,Quebra-cabeça 500pç,,3.0,
 29,2023-07-04,Bola Oficial,Esporte,7.0,89.63
-30,31/02/2023,Garrafa Térmica,Esporte,5.0,92.14
+30,2023-05-14,Garrafa Térmica,Esporte,5.0,92.14
 31,2023-09-26,Garrafa Térmica,Esporte,8.0,162.49
 32,2023-04-30,Panela Antiaderente,Casa & Cozinha,3.0,76.82
 33,2023-06-08,Mouse Óptico,Eletrônicos,4.0,
@@ -39,7 +39,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 38,2023-04-19,Carrinho RC,Brinquedos,7.0,84.82
 39,2023-10-17,Panela Antiaderente,Casa & Cozinha,4.0,93.73
 40,2023-12-13,Boné Snapback,Moda,3.0,69.07
-41,2023-13-01,Smartwatch,Eletrônicos,6.0,313.48
+41,2023-09-02,Smartwatch,Eletrônicos,6.0,313.48
 42,2023-12-01,Calça Jeans,Moda,5.0,91.7
 43,2023-11-08,Tênis Casual,Moda,2.0,
 44,2023-06-25,Aspirador 900,Casa & Cozinha,4.0,147.71
@@ -50,7 +50,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 49,2023-12-17,Camiseta Básica,Moda,5.0,45.41
 50,2023-11-06,Camiseta Básica,,3.0,
 51,2023-06-28,Jaqueta Leve,Moda,6.0,59.74
-52,31/02/2023,Fone Pro,,5.0,320.73
+52,2023-08-27,Fone Pro,,5.0,320.73
 53,2023-03-15,Panela Antiaderente,Casa & Cozinha,4.0,123.51
 54,2023-10-21,Garrafa Térmica,Esporte,2.0,251.18
 55,2023-07-21,Camiseta Dry,Esporte,2.0,154.59
@@ -59,8 +59,8 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 58,2023-08-20,Caixa Bluetooth,Eletrônicos,7.0,188.48
 59,2023-01-27,Camiseta Básica,,3.0,67.44
 60,2023-04-16,Tênis Casual,,6.0,105.29
-61,,Jogo de Tabuleiro,Brinquedos,7.0,59.56
-61,,Jogo de Tabuleiro,Brinquedos,8,52.29591457633075
+61,2023-03-06,Jogo de Tabuleiro,Brinquedos,7.0,59.56
+61,2023-03-06,Jogo de Tabuleiro,Brinquedos,8,52.29591457633075
 62,2023-09-26,Boné Snapback,Moda,3.0,140.64
 63,2023-01-13,Panela Antiaderente,Casa & Cozinha,4.0,101.84
 64,2023-03-15,Jogo de Tabuleiro,Brinquedos,3.0,
@@ -95,7 +95,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 91,2023-12-30,Mochila Fitness,Esporte,5.0,68.5
 92,2023-10-18,Quebra-cabeça 500pç,Brinquedos,4,192.37
 93,2023-12-06,Carrinho RC,Brinquedos,9.0,130.0
-94,2023-13-01,Aspirador 900,Casa & Cozinha,2.0,157.33
+94,2023-12-12,Aspirador 900,Casa & Cozinha,2.0,157.33
 95,2023-02-02,,Brinquedos,4.0,18.55
 96,2023-04-03,Cafeteira X,Casa & Cozinha,4.0,91.74
 97,2023-09-21,Liquidificador Turbo,Casa & Cozinha,3.0,211.56
@@ -103,7 +103,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 99,2023-01-19,Calça Jeans,,6.0,156.71
 100,2023-02-04,Mouse Óptico,Eletrônicos,5.0,115.42
 101,2023-07-09,Jogo de Tabuleiro,Brinquedos,,95.87
-102,2023-13-01,Smartwatch,Eletrônicos,6.0,551.75
+102,2023-08-13,Smartwatch,Eletrônicos,6.0,551.75
 103,2023-03-03,Carrinho RC,Brinquedos,6.0,29.58
 104,2023-03-04,Caixa Bluetooth,Eletrônicos,3.0,298.58
 105,2023-02-17,Jaqueta Leve,Moda,2.0,103.21
@@ -116,8 +116,8 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 112,2023-07-10,Calça Jeans,Moda,5.0,72.12
 113,2023-09-23,Tênis Running,Esporte,3.0,117.64
 114,,Bola Oficial,Esporte,5.0,149.71
-115,,,Esporte,5.0,103.06
-115,,,Esporte,5,101.8313374833985
+115,2023-12-02,,Esporte,5.0,103.06
+115,2023-12-02,,Esporte,5,101.8313374833985
 116,2023-10-19,Mochila Fitness,Esporte,5.0,97.77
 117,2023-07-08,Caixa Bluetooth,Eletrônicos,4,317.09
 118,,Fone Pro,Eletrônicos,3.0,
@@ -131,7 +131,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 126,2023-02-12,Bola Oficial,Esporte,3.0,
 127,2023-09-21,Caixa Bluetooth,Eletrônicos,5.0,332.25
 128,2023-02-02,Boné Snapback,,5.0,
-129,31/02/2023,,,3.0,167.28
+129,2023-13-01,,,3.0,167.28
 130,2023-08-29,Tênis Casual,Moda,6.0,143.47
 131,2023-09-24,Bola Oficial,Esporte,4.0,152.85
 132,2023-06-02,Mochila Fitness,Esporte,3.0,
@@ -168,7 +168,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 161,2023-03-06,Blocos Criativos,,8.0,63.52
 162,2023-07-21,Camiseta Básica,Moda,4.0,125.27
 163,2023-12-13,Mochila Fitness,Esporte,3.0,
-164,,Garrafa Térmica,,7.0,134.71
+164,2023-12-08,Garrafa Térmica,,7.0,134.71
 165,2023-05-12,Bola Oficial,Esporte,5.0,103.32
 166,2023-10-12,Jogo de Tabuleiro,Brinquedos,3.0,
 167,2023-08-12,Liquidificador Turbo,Casa & Cozinha,2.0,190.22
@@ -183,27 +183,27 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 174,2023-09-19,Jaqueta Leve,Moda,3.0,52.33
 175,2023-11-05,Tênis Casual,Moda,3.0,
 175,2023-11-05,Tênis Casual,Moda,4,
-176,31/02/2023,Mochila Fitness,,5.0,200.24
+176,2023-12-14,Mochila Fitness,,5.0,200.24
 177,2023-06-04,Boné Snapback,Moda,6.0,104.04
 178,2023-02-13,Fone Pro,Eletrônicos,5.0,329.68
 179,2023-04-09,Blocos Criativos,Brinquedos,3.0,70.57
 180,2023-11-07,Bola Oficial,Esporte,3.0,168.47
 181,2023-11-17,Carrinho RC,Brinquedos,6.0,64.04
-182,,Caixa Bluetooth,Eletrônicos,4.0,345.55
+182,2023-08-21,Caixa Bluetooth,Eletrônicos,4.0,345.55
 183,2023-02-14,Tênis Running,Esporte,2.0,185.57
 184,2023-02-14,Tênis Casual,Moda,1.0,67.96
 185,2023-06-24,,Esporte,4,88.18
-186,,Tênis Running,Esporte,5.0,66.04
+186,2023-08-03,Tênis Running,Esporte,5.0,66.04
 187,2023-01-12,Mouse Óptico,Eletrônicos,3.0,158.4
 188,2023-09-08,Aspirador 900,,3.0,60.13
 189,2023-07-18,Jogo de Facas,Casa & Cozinha,3.0,216.06
-190,,Jogo de Facas,Casa & Cozinha,3.0,370.59
+190,2023-01-05,Jogo de Facas,Casa & Cozinha,3.0,370.59
 191,2023-02-04,Boné Snapback,Moda,2.0,183.55
 192,2023-06-15,Boné Snapback,Moda,4.0,39.92
 193,2023-09-21,Tênis Casual,,4.0,129.31
 194,2023-10-29,Jogo de Facas,Casa & Cozinha,3.0,
 195,2023-06-07,Carrinho RC,Brinquedos,6.0,
-196,31/02/2023,Teclado Mecânico,Eletrônicos,6.0,318.83
+196,2023-04-18,Teclado Mecânico,Eletrônicos,6.0,318.83
 197,2023-12-20,Liquidificador Turbo,Casa & Cozinha,8.0,
 198,2023-06-17,Mouse Óptico,Eletrônicos,3.0,352.07
 199,31/02/2023,Cafeteira X,Casa & Cozinha,5.0,88.13
@@ -226,11 +226,11 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 215,2023-10-11,Boné Snapback,Moda,4.0,121.67
 216,2023-11-02,Liquidificador Turbo,Casa & Cozinha,,140.56
 217,2023-01-16,Caixa Bluetooth,,3.0,434.96
-218,2023-13-01,Fone Pro,,2.0,149.49
+218,2023-02-08,Fone Pro,,2.0,149.49
 219,2023-08-31,,Esporte,2.0,121.96
 220,2023-12-31,Boneca Classic,Brinquedos,6.0,87.39
 220,2023-12-31,Boneca Classic,Brinquedos,7,85.84015013471769
-221,31/02/2023,Mouse Óptico,Eletrônicos,5,
+221,2023-01-09,Mouse Óptico,Eletrônicos,5,
 222,2023-08-31,Bola Oficial,Esporte,4.0,149.19
 223,2023-13-01,Camiseta Básica,Moda,4.0,60.92
 224,2023-08-26,Cafeteira X,Casa & Cozinha,4.0,193.55
@@ -242,19 +242,19 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 229,2023-11-12,Camiseta Dry,Esporte,9,88.19
 229,2023-11-12,Camiseta Dry,Esporte,9,94.71649743877651
 230,2023-01-11,Caixa Bluetooth,,3.0,555.01
-231,2023-13-01,Garrafa Térmica,,3.0,102.4
+231,2023-03-31,Garrafa Térmica,,3.0,102.4
 232,2023-03-29,Quebra-cabeça 500pç,Brinquedos,3,33.19
-233,,Fone Pro,Eletrônicos,2.0,155.64
+233,2023-06-15,Fone Pro,Eletrônicos,2.0,155.64
 234,2023-02-22,Calça Jeans,Moda,6.0,150.39
 235,2023-11-08,,Esporte,2.0,45.91
 236,2023-10-11,Camiseta Básica,Moda,2.0,158.27
 237,2023-10-23,Jaqueta Leve,Moda,5.0,87.55
-238,2023-13-01,Bola Oficial,Esporte,6.0,66.11
-238,2023-13-01,Bola Oficial,Esporte,7,68.71773500852329
+238,2023-03-14,Bola Oficial,Esporte,6.0,66.11
+238,2023-03-14,Bola Oficial,Esporte,7,68.71773500852329
 239,2023-01-06,Aspirador 900,,,112.06
 240,2023-11-29,Camiseta Básica,,4.0,54.12
 241,2023-04-16,Smartwatch,Eletrônicos,4.0,
-242,,Bola Oficial,Esporte,4.0,173.07
+242,2023-08-28,Bola Oficial,Esporte,4.0,173.07
 243,2023-11-28,Fone Pro,Eletrônicos,4,106.94
 244,2023-01-14,Camiseta Básica,Moda,5.0,73.55
 245,2023-01-02,Boné Snapback,Moda,1.0,
@@ -262,7 +262,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 247,2023-02-27,Jaqueta Leve,Moda,5.0,45.82
 248,2023-01-19,Garrafa Térmica,Esporte,7.0,267.63
 249,2023-10-27,Jaqueta Leve,Moda,6.0,88.51
-250,31/02/2023,Smartwatch,Eletrônicos,5.0,149.4
+250,2023-08-10,Smartwatch,Eletrônicos,5.0,149.4
 251,2023-12-24,Caixa Bluetooth,Eletrônicos,3.0,199.82
 252,2023-13-01,Tênis Running,Esporte,5.0,80.37
 253,2023-12-18,Caixa Bluetooth,Eletrônicos,4.0,139.63
@@ -293,7 +293,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 277,2023-07-17,Camiseta Dry,Esporte,4.0,83.12
 278,2023-09-29,Jaqueta Leve,Moda,4.0,114.7
 279,2023-07-20,Caixa Bluetooth,Eletrônicos,4.0,346.13
-280,2023-13-01,Fone Pro,Eletrônicos,7.0,284.47
+280,2023-08-18,Fone Pro,Eletrônicos,7.0,284.47
 281,2023-02-01,Liquidificador Turbo,,3.0,120.95
 282,2023-11-07,Camiseta Dry,Esporte,3.0,178.71
 283,2023-06-13,Camiseta Básica,Moda,6.0,79.99
@@ -310,7 +310,7 @@ ID,Data,Produto,Categoria,Quantidade,Preco
 294,31/02/2023,Cafeteira X,,10.0,
 295,2023-10-01,,Esporte,5.0,121.88
 296,2023-08-12,Camiseta Dry,Esporte,6.0,105.79
-297,2023-13-01,Boneca Classic,Brinquedos,3.0,49.92
+297,2023-07-05,Boneca Classic,Brinquedos,3.0,49.92
 298,2023-01-20,Mochila Fitness,Esporte,4.0,103.81
 299,2023-01-26,Jogo de Facas,Casa & Cozinha,1.0,165.64
 300,2023-08-13,Smartwatch,Eletrônicos,3.0,189.32
