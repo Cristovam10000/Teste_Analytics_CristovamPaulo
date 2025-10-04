@@ -1,179 +1,161 @@
-﻿# Teste para Estagiário de Analytics – Quod
+# Teste para Estagiario de Analytics - Quod
 
-Este repositório contém a solução para o desafio de Estágio em Analytics da Quod. O objetivo é mostrar a capacidade de **simular um conjunto de dados de vendas**, aplicar **técnicas de limpeza e tratamento de dados**, realizar **análises exploratórias com visualizações**, escrever **consultas SQL** e **interpretar os resultados obtidos**. O código foi desenvolvido em **Python 3.11** utilizando bibliotecas de ciência de dados amplamente conhecidas.
-
----
-
-## Visão geral das tarefas
-
-O desafio foi dividido em três partes, cada uma com objetivos específicos.
-
-### Programação em Python – Simulação, limpeza e análise de dados
-
-**Simulação de dados.** Geração de um dataset sintético de vendas com ~300 linhas (mínimo de 50 registros) entre **01/01/2023** e **31/12/2023**. Foram definidas **6 categorias de produtos** (Eletrônicos, Casa & Cozinha, Esporte, Moda, Brinquedos e Material Escolar) e, para cada categoria, uma lista de produtos.  
-- **Preços**: gerados a partir de distribuições **log-normais** específicas por categoria.  
-- **Quantidade**: segue uma **distribuição de Poisson** ajustada por **sazonalidade mensal**.  
-- **Sujeiras propositalmente adicionadas** ao CSV: campos ausentes, datas inválidas, quantidades como string ou iguais a zero/negativas e duplicatas.  
-- O arquivo bruto é salvo em `data/raw/vendas_2023.csv`.
-
-**Diagnóstico do CSV.** A função `diagnosticar_csv_plus` (Etapa 01) faz uma varredura detalhada do arquivo bruto:  
-- Amostra e **tipos das colunas**.  
-- **Contagem de valores ausentes**.  
-- **Duplicatas** (linha a linha e por chaves `(ID, Data)`).  
-- **Colunas `object`** que deveriam ser numéricas.  
-- **Datas inválidas**.  
-- **Quantidades ou preços** não numéricos/negativos.  
-- **Exemplos de linhas problemáticas** para orientar a limpeza.
-
-**Limpeza de dados.** A função `clean_sales_csv` transforma o arquivo bruto em um dataset consistente. Entre as etapas:  
-- Conversão de datas com `pd.to_datetime` (tratamento de erros).  
-- Remoção de **duplicatas exatas** e de **IDs repetidos**.  
-- Normalização de textos para `string`.  
-- Conversão de **preços** e **quantidades** para numéricos.  
-- Substituição de valores **não positivos por `NaN`**.  
-- **Imputação** de valores ausentes (mediana do produto ou **mediana global**).  
-- **Agregação** de linhas duplicadas por `(ID, Data)` com **mediana/moda**.  
-- **Imputação cruzada** de `Produto ↔ Categoria`.  
-- **Descarte** de registros sem **produto** ou **categoria**.  
-- **Arredondamento** de preços e quantidades e **ordenação final**.  
-- Resultado em `data/processed/data_clean.csv` e **relatório** com contagens de linhas descartadas/imputadas.
-
-**Análise de vendas.** A função `analisar_vendas` carrega o conjunto limpo, calcula o **total de vendas** (`Quantidade * Preco`) por linha e soma **por produto**.  
-- Gera `data/processed/vendas_por_produto.csv` (totais por produto com 2 casas).  
-- Imprime o **Top-5 atual**: Caixa Bluetooth, Mouse Óptico, Camiseta Básica, Fone Pro e Smartwatch.
+Este repositorio contem a solucao para o desafio de Estagio em Analytics da Quod. O objetivo e demonstrar a capacidade de **simular um conjunto de dados de vendas**, aplicar **tecnicas de limpeza e tratamento**, produzir **analises exploratorias com visualizacoes**, escrever **consultas SQL** e **interpretar os resultados**. O codigo foi desenvolvido em **Python 3.11** com bibliotecas populares de ciencia de dados.
 
 ---
 
-## Análise Exploratória de Dados (EDA)
+## Visao geral das tarefas
 
-O notebook `Parte01/Etapa02.ipynb` carrega o conjunto limpo (`data/processed/data_clean.csv`), converte a coluna `Data` para `datetime` e cria a coluna `Total`. Com **matplotlib**, são geradas duas visualizações principais:
+O desafio foi dividido em tres partes com objetivos especificos.
 
-1. **Tendência de vendas mensais.** Agrupamento por `Data.dt.to_period("M")` e gráfico de linhas mostrando a variação do faturamento em 2023. Observa-se **sazonalidade forte** com picos em fevereiro, agosto e dezembro.  
-2. **Top‑5 produtos.** Gráfico de barras com os cinco produtos de maior venda absoluta. Evidencia-se **efeito de longa cauda**: poucos produtos concentram a maior parte da receita; os demais representam fração menor.
+### Programacao em Python - Simulacao, limpeza e analise de dados
 
-O notebook também imprime **insights preliminares** em texto: (i) existência de sazonalidade ao longo do ano; (ii) concentração de vendas em poucos produtos.
+**Simulacao de dados.** Gera um dataset sintetico (~300 linhas) de 01/01/2023 a 31/12/2023. Foram definidas **6 categorias** (Eletronicos, Casa & Cozinha, Esporte, Moda, Brinquedos e Material Escolar) e listas de produtos para cada uma.
+- **Precos**: distribuicoes log-normais por categoria.
+- **Quantidades**: distribuicao de Poisson ajustada por sazonalidade mensal.
+- **Ruido proposital**: valores ausentes, datas invalidas, numeros como texto, zeros/negativos e duplicatas.
+- Saida bruta: `data/raw/vendas_2023.csv`.
+
+**Diagnostico do CSV.** A funcao `diagnosticar_csv_plus` (Etapa 01) inspeciona o arquivo bruto:
+- Amostra e tipos de coluna.
+- Contagem de nulos.
+- Duplicatas (linha a linha e por `(ID, Data)`).
+- Colunas textuais que deveriam ser numericas.
+- Datas invalidas ou fora do periodo.
+- Quantidades/precos nao numericos ou menores/iguais a zero.
+- Exemplos de registros problematicos para orientar a limpeza.
+
+**Limpeza de dados.** A funcao `clean_sales_csv` transforma o arquivo em dataset consistente:
+- Conversao robusta de datas.
+- Remocao de duplicatas exatas e IDs repetidos.
+- Normalizacao de textos para `string`.
+- Conversao de campos numericos com tratamento de formatos mistos.
+- Substituicao de valores nao positivos por `NaN`.
+- Imputacao de faltantes (mediana do produto ou mediana global).
+- Agregacao de duplicados `(ID, Data)` via mediana/moda.
+- Imputacao cruzada Produto <-> Categoria e descarte de registros sem informacao.
+- Arredondamento final e ordenacao. Resultado: `data/processed/data_clean.csv` + relatorio de limpeza.
+
+**Analise de vendas.** `analisar_vendas` soma o total por produto, grava `data/processed/vendas_por_produto.csv` e exibe o ranking Top-5 atual (Caixa Bluetooth, Fone Pro, Smartwatch, Mouse Optico, Bola Oficial).
+
+---
+
+## Analise exploratoria de dados (EDA)
+
+`Parte01/Etapa02.ipynb` carrega `data_clean.csv`, calcula `Total = Quantidade * Preco` e gera duas figuras:
+1. **Tendencia mensal** (linha) com picos em dezembro, fevereiro e janeiro.
+2. **Top-5 produtos** (barras) evidenciando concentracao de receita.
+
+A ultima celula do notebook traz os insights quantitativos atualizados.
 
 ---
 
 ## Consultas SQL
 
-Embora não estejam presentes no repositório original, o desafio pede a escrita de consultas SQL para trabalhar com a base limpa. Abaixo, exemplos que atendem aos requisitos propostos.  
-As consultas assumem uma tabela chamada `vendas` com colunas `ID`, `Data`, `Produto`, `Categoria`, `Quantidade` e `Preco` (estrutura idêntica a `data_clean.csv`). A segunda consulta usa `strftime` do **SQLite**; ajuste conforme o SGBD.
+Exemplos para a Parte 2 (estrutura equivalente ao CSV limpo):
 
-### (a) Soma total de vendas por produto e categoria (ordem decrescente)
 ```sql
-SELECT
-  Produto,
-  Categoria,
-  SUM(Quantidade * Preco) AS total_vendas
+-- Total de vendas por produto e categoria (decrescente)
+SELECT Produto, Categoria, ROUND(SUM(Quantidade * Preco), 2) AS total_vendas
 FROM vendas
 GROUP BY Produto, Categoria
 ORDER BY total_vendas DESC;
+
+-- Cinco produtos com menor faturamento em junho/2023 (SQLite)
+WITH junho AS (
+    SELECT Produto, ROUND(SUM(Quantidade * Preco), 2) AS total_vendas
+    FROM vendas
+    WHERE Data >= '2023-06-01' AND Data < '2023-07-01'
+    GROUP BY Produto
+)
+SELECT Produto, total_vendas
+FROM junho
+ORDER BY total_vendas ASC, Produto ASC
+LIMIT 5;
 ```
 
-### (b) Produtos que venderam menos no mês de junho de 2024 (exemplo se dataset for estendido)
-```sql
-SELECT
-  Produto,
-  SUM(Quantidade) AS quantidade_total
-FROM vendas
-WHERE strftime('%Y-%m', Data) = '2024-06'
-GROUP BY Produto
-ORDER BY quantidade_total ASC;
-```
+Adapte a sintaxe de data conforme o SGBD utilizado.
 
 ---
 
-## Relatório de insights
+## Relatorio de insights
 
-- **Volume total de vendas**: R$ 176.811,77 (dados limpos, 291 registros).
-- **Picos sazonais**: fevereiro, agosto e dezembro somam cerca de R$ 67,1 mil (38% do faturamento anual).
-- **Dependência de poucos produtos**:
-  - Caixa Bluetooth: R$ 22,7 mil.
-  - Top-5 itens respondem por 38,8% da receita total.
-- **Categorias de maior peso**: Eletrônicos (R$ 61,4 mil), Casa & Cozinha (R$ 33,1 mil) e Esporte (R$ 25,8 mil).
-- **Meses de baixa**: abril e maio ficam abaixo de R$ 10 mil e demandam campanhas de estímulo.
-
-Esses números são detalhados tanto nas visualizações da Etapa 02 quanto no relatório final.
+- **Volume total**: R$ 187.183,68 (291 registros limpos).
+- **Picos sazonais**: dezembro, fevereiro e janeiro somam ~R$ 66,3 mil (35% da receita anual).
+- **Dependencia de poucos produtos**: Caixa Bluetooth gera R$ 25,1 mil; Top-5 concentram 40,5% da receita.
+- **Categorias de maior peso**: Eletronicos (R$ 74,7 mil, 40% do total), Casa & Cozinha (R$ 29,3 mil), Esporte (R$ 28,5 mil), Brinquedos (R$ 23,8 mil) e Material Escolar (R$ 11,4 mil).
+- **Meses de baixa**: junho (R$ 9,0 mil) e marco (R$ 9,7 mil) ficam abaixo de R$ 10 mil, sugerindo campanhas de estimulo.
 
 ---
 
-## Estrutura do repositório
+## Estrutura do repositorio
 
 ```text
 Teste_Analytics_CristovamPaulo/
-├── Parte01/
-│   ├── Etapa01.ipynb              # Geração de dados, diagnóstico, limpeza e análise de vendas
-│   └── Etapa02.ipynb              # EDA e visualizações (tendência mensal e top‑5 produtos)
-├── data/
-│   ├── raw/
-│   │   └── vendas_2023.csv        # CSV sintético com sujeiras (dataset bruto)
-│   └── processed/
-│       ├── data_clean.csv         # Conjunto de vendas limpo e padronizado
-│       └── vendas_por_produto.csv # Total de vendas por produto (ranking)
-├── reports/
-│   └── figures/
-│       ├── tendencia_mensal.png   # Gráfico de linha (gerado na Etapa 02)
-│       └── top5_produtos.png      # Gráfico de barras (gerado na Etapa 02)
-├── sql/
-│   └── consultas_sql.sql          # (sugestão) consultas SQL da Parte 2
-├── presentation/                  # (sugestão) slides/apresentações finais
-└── relatorio_insights.md          # (sugestão) relatório textual com insights
++-- Parte01/
+�   +-- Etapa01.ipynb              # Geracao, diagnostico, limpeza e analise de vendas
+�   +-- Etapa02.ipynb              # EDA e visualizacoes
++-- data/
+�   +-- raw/
+�   �   +-- vendas_2023.csv        # Dataset bruto com sujeiras
+�   +-- processed/
+�       +-- data_clean.csv         # Dataset limpo
+�       +-- vendas_por_produto.csv # Totais por produto
++-- reports/
+�   +-- figures/
+�       +-- tendencia_mensal.png
+�       +-- top5_produtos.png
++-- sql/
+�   +-- consultas_sql.sql
++-- src/
+�   +-- to_sqlite.py               # Script opcional para carregar o CSV no SQLite
++-- relatorio_insights.md          # Relatorio textual com insights
 ```
 
-> **Observação.** Algumas pastas como `sql/` e `presentation/` podem estar vazias ou não presentes no repositório inicial; são previstas no enunciado para armazenar as consultas da Parte 2 e materiais da Parte 3.
+> Observacao: pastas adicionais (por exemplo `presentation/`) podem ser adicionadas conforme o material de entrega.
 
 ---
 
 ## Como executar os scripts
 
-### Preparação do ambiente
+### Preparacao do ambiente
 
-É recomendável utilizar um ambiente virtual (`venv` ou `conda`). Após ativar, instale as dependências:
-
-```bash
-pip install pandas numpy faker matplotlib ipython
-```
-
-Para executar os notebooks, instale o Jupyter:
+Crie um ambiente virtual (`python -m venv .venv`) e instale:
 
 ```bash
-pip install notebook
-jupyter notebook
+pip install pandas numpy faker matplotlib ipython notebook
 ```
 
-### Execução da Etapa 01 (simulação e limpeza)
+### Etapa 01 - Simulacao e limpeza
 
-Abra o notebook `Parte01/Etapa01.ipynb` no Jupyter e execute as células em ordem. Ao final, serão gerados:
-
+Execute `Parte01/Etapa01.ipynb` sequencialmente. Arquivos gerados:
 - `data/raw/vendas_2023.csv`
 - `data/processed/data_clean.csv`
 - `data/processed/vendas_por_produto.csv`
 
-Também será exibido no console um **resumo da limpeza** com contagem de linhas descartadas e imputadas.
+O notebook imprime um resumo da limpeza (linhas descartadas, imputacoes etc.).
 
-### Execução da Etapa 02 (EDA)
+### Etapa 02 - EDA
 
-Antes de rodar `Parte01/Etapa02.ipynb`, garanta que `data/processed/data_clean.csv` exista (gerado na Etapa 01). Abra o notebook e execute todas as células. Serão criados os gráficos em `reports/figures` e impressos os **insights iniciais**.
+Com `data_clean.csv` pronto, execute `Parte01/Etapa02.ipynb`. As figuras sao salvas em `reports/figures` e os insights atualizados aparecem ao final.
 
-### Consultas SQL e relatório
+### Consultas SQL e relatorio
 
-Crie o arquivo `sql/consultas_sql.sql` com as consultas sugeridas. Utilize um SGBD de sua preferência (SQLite, PostgreSQL, MySQL etc.) e **carregue o CSV limpo** para executar as consultas.  
-Escreva `relatorio_insights.md` destacando os achados e sugerindo ações para o negócio.
-
----
-
-## Assunções e considerações
-
-- **Período do dataset.** O enunciado solicita dados de 2023; a simulação **não foi estendida para 2024**. Para responder consultas de **junho/2024**, defina `EXTENDER_ATE_2024_06 = True` no notebook de simulação para incluir datas até `2024-06-30`.  
-- **Dados sintéticos.** Todos os dados são fictícios e servem apenas para demonstrar habilidade técnica. Valores monetários são expressos em **reais (R$)** e **escalados em centavos** no arquivo limpo para evitar perdas de precisão (por exemplo, `27560.00` representa **R$ 275,60**).  
-- **Visualizações.** Utilizou-se **matplotlib** (estilo *seaborn*) para criar os gráficos; outras bibliotecas (como **seaborn** ou **plotly**) poderiam ser usadas, salvando as figuras em `reports/figures`.  
-- **Qualidade do código.** Código **comentado**, estruturado em **funções** e com limpeza **parametrizada** (ex.: chaves para agregar duplicatas, número de casas decimais), facilitando reutilização e testes.
+Abra `sql/consultas_sql.sql` no SGBD preferido (ex.: SQLite). Use `src/to_sqlite.py` para recriar a tabela `vendas` em `vendas.db` se desejar. O arquivo `relatorio_insights.md` resume os principais achados.
 
 ---
 
-## Conclusão
+## Assuncoes e consideracoes
 
-Este repositório demonstra a capacidade de realizar **todo o ciclo de análise de dados** de um problema fictício: da geração e tratamento do dataset até a apresentação de insights por meio de **gráficos e SQL**. Seguindo a estrutura proposta, é possível **reproduzir resultados**, verificar a organização do código e compreender as decisões tomadas ao longo do projeto. A **documentação clara** e a **limpeza cuidadosa** evidenciam atenção aos detalhes e boas práticas de ciência de dados.
+- O dataset cobre apenas 2023. Para responder consultas de junho/2024, defina `EXTENDER_ATE_2024_06 = True` em `Etapa01.ipynb` e regenere os artefatos.
+- Dados sao 100% sinteticos; valores podem ser ajustados conforme novas iteracoes.
+- Visualizacoes usam `matplotlib`, mas outras bibliotecas podem ser integradas sem alterar o pipeline.
+- O codigo foi escrito com foco em clareza e reutilizacao (funcoes, comentarios pontuais e parametrizacao).
+
+---
+
+## Conclusao
+
+O repositorio cobre o ciclo completo de analytics do desafio: simulacao, limpeza, EDA, SQL e relato de insights. Seguindo as instrucoes acima e possivel reproduzir os resultados, avaliar a organizacao do codigo e compreender as decisoes tecnicas tomadas.
 
 ---
