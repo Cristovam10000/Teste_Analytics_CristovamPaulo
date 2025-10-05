@@ -43,7 +43,7 @@ O desafio foi dividido em tres partes com objetivos especificos.
 ## Analise exploratoria de dados (EDA)
 
 `Parte01/Etapa02.ipynb` carrega `data_clean.csv`, calcula `Total = Quantidade * Preco` e gera duas figuras:
-1. **Tendencia mensal** (linha) com picos em dezembro, fevereiro e janeiro.
+1. **Tendencia mensal** (linha) com picos em dezembro, fevereiro, janeiro e abril.
 2. **Top-5 produtos** (barras) evidenciando concentracao de receita.
 
 A ultima celula do notebook traz os insights quantitativos atualizados.
@@ -93,22 +93,22 @@ Adapte a sintaxe de data conforme o SGBD utilizado.
 ```text
 Teste_Analytics_CristovamPaulo/
 +-- Parte01/
-¦   +-- Etapa01.ipynb              # Geracao, diagnostico, limpeza e analise de vendas
-¦   +-- Etapa02.ipynb              # EDA e visualizacoes
+Â¦   +-- Etapa01.ipynb              # Geracao, diagnostico, limpeza e analise de vendas
+Â¦   +-- Etapa02.ipynb              # EDA e visualizacoes
 +-- data/
-¦   +-- raw/
-¦   ¦   +-- vendas_2023.csv        # Dataset bruto com sujeiras
-¦   +-- processed/
-¦       +-- data_clean.csv         # Dataset limpo
-¦       +-- vendas_por_produto.csv # Totais por produto
+Â¦   +-- raw/
+Â¦   Â¦   +-- vendas_2023.csv        # Dataset bruto com sujeiras
+Â¦   +-- processed/
+Â¦       +-- data_clean.csv         # Dataset limpo
+Â¦       +-- vendas_por_produto.csv # Totais por produto
 +-- reports/
-¦   +-- figures/
-¦       +-- tendencia_mensal.png
-¦       +-- top5_produtos.png
+Â¦   +-- figures/
+Â¦       +-- tendencia_mensal.png
+Â¦       +-- top5_produtos.png
 +-- sql/
-¦   +-- consultas_sql.sql
+Â¦   +-- consultas_sql.sql
 +-- src/
-¦   +-- to_sqlite.py               # Script opcional para carregar o CSV no SQLite
+Â¦   +-- to_sqlite.py               # Script opcional para carregar o CSV no SQLite
 +-- relatorio_insights.md          # Relatorio textual com insights
 ```
 
